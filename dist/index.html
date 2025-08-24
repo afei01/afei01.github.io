@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Personal Portfolio Website in HTML,CSS &amp; Javascript.</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personal Portfolio — Your Name</title>
+    <meta name="description" content="Developer portfolio showcasing projects, skills, and contact form. Accessible, responsive, and theme-aware." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container header-grid">
+        <a class="brand" href="#">
+          <span class="brand__logo" aria-hidden="true">⚡</span>
+          <span class="brand__text">Your Name</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button id="theme-toggle"
+                  class="btn btn-icon"
+                  type="button"
+                  aria-pressed="false"
+                  aria-label="Toggle dark mode"
+                  title="Toggle theme">
+            <span class="icon-sun" aria-hidden="true">☀️</span>
+            <span class="icon-moon" aria-hidden="true">🌙</span>
+          </button>
+          <ul class="nav__list">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" class="btn btn-primary">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="site-main" role="main">
+      <!-- HERO -->
+      <section class="section hero">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <h1>
+              Hi, I’m <span class="accent">Dhanian</span> — a
+              <span class="nowrap">Frontend/Full-Stack Developer</span>
+            </h1>
+            <p class="lead">
+              I build fast, accessible web experiences and love component-driven design.
+            </p>
+            <div class="hero__actions">
+              <a href="#projects" class="btn btn-primary">View Projects</a>
+              <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+            <ul class="social" aria-label="Social links">
+              <li><a href="#" aria-label="GitHub">GitHub</a></li>
+              <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+              <li><a href="#" aria-label="X / Twitter">X</a></li>
+            </ul>
+          </div>
+
+          <figure class="hero__media" aria-labelledby="hero-caption">
+            <svg class="portrait" viewBox="0 0 300 300" role="img" aria-labelledby="hero-caption">
+              <title id="hero-caption">Abstract developer portrait</title>
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" />
+                  <stop offset="100%" />
+                </linearGradient>
+              </defs>
+              <rect width="300" height="300" rx="24" fill="url(#g)"/>
+              <circle cx="150" cy="110" r="48" class="svg-accent"/>
+              <rect x="48" y="180" width="204" height="72" rx="18" class="svg-accent" opacity="0.5"/>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="container">
+          <header class="section__header">
+            <h2>Selected Projects</h2>
+            <p class="muted">A few things I’ve built recently.</p>
+          </header>
+
+          <!-- filter/search (component-driven UX) -->
+          <div class="toolbar" role="region" aria-label="Project filters">
+            <input id="search" class="input" type="search" placeholder="Search projects…" aria-label="Search projects" />
+            <select id="filter" class="select" aria-label="Filter by tag">
+              <option value="all">All tags</option>
+            </select>
+          </div>
+
+          <div id="project-grid" class="grid cards" role="list"></div>
+
+          <!-- Card template -->
+          <template id="project-card-template">
+            <article class="card" role="listitem">
+              <div class="card__media" aria-hidden="true">
+                <svg class="thumb" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <linearGradient id="card-g" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" />
+                      <stop offset="100%" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="640" height="360" fill="url(#card-g)" />
+                </svg>
+              </div>
+              <div class="card__body">
+                <h3 class="card__title"><a class="card__link" href="#" target="_blank" rel="noopener"></a></h3>
+                <p class="card__desc"></p>
+                <ul class="tags" aria-label="Project tags"></ul>
+              </div>
+              <div class="card__footer">
+                <a class="btn btn-sm btn-outline" target="_blank" rel="noopener">Live</a>
+                <a class="btn btn-sm btn-ghost" target="_blank" rel="noopener">Code</a>
+              </div>
+            </article>
+          </template>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section section--alt">
+        <div class="container">
+          <header class="section__header">
+            <h2>About</h2>
+            <p class="muted">Who I am and how I work.</p>
+          </header>
+          <div class="about__grid">
+            <p>
+              I focus on accessible UI, modern tooling, and performance. My work blends design systems,
+              component-driven development, and continuous delivery.
+            </p>
+            <ul class="checklist">
+              <li>Semantic HTML & WCAG-2.2 friendly</li>
+              <li>Responsive layouts (mobile-first, grid/flex)</li>
+              <li>Modern JS (ES2023), TypeScript-ready</li>
+              <li>Reusable components & state management</li>
+              <li>Automated tests & CI-friendly structure</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="container">
+          <header class="section__header">
+            <h2>Contact</h2>
+            <p class="muted">Have a project or role in mind? Let’s talk.</p>
+          </header>
+
+          <form id="contact-form" class="form" novalidate>
+            <div class="grid form__grid">
+              <label class="field">
+                <span class="label">Name</span>
+                <input type="text" name="name" autocomplete="name" required />
+                <span class="error" aria-live="polite"></span>
+              </label>
+
+              <label class="field">
+                <span class="label">Email</span>
+                <input type="email" name="email" autocomplete="email" required />
+                <span class="error" aria-live="polite"></span>
+              </label>
+
+              <label class="field field--full">
+                <span class="label">Message</span>
+                <textarea name="message" rows="6" required minlength="10" maxlength="2000"></textarea>
+                <span class="error" aria-live="polite"></span>
+              </label>
+            </div>
+
+            <div class="form__actions">
+              <button class="btn btn-primary" type="submit">Send Message</button>
+              <p id="form-status" class="muted" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+          <noscript><p class="muted">JavaScript is disabled — the form will not submit.</p></noscript>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-grid">
+        <p>&copy; <span id="year"></span> Dhanian. Built with HTML, CSS, and JavaScript.</p>
+        <a href="#" class="btn btn-sm btn-ghost">Download Résumé</a>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
